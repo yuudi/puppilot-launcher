@@ -116,12 +116,12 @@ func downloadUpdate(downloadUrl string) error {
 		}
 		switch header.Typeflag {
 		case tar.TypeDir:
-			if err := os.Mkdir(path.Join("puppilot", header.Name), 0755); err != nil {
+			if err := os.MkdirAll(path.Join("puppilot", header.Name), 0755); err != nil {
 				return err
 			}
 			continue
 		case tar.TypeReg:
-			file, err := os.Create(path.Join("puppilot", header.Name))
+			file, err := os.OpenFile(path.Join("puppilot", header.Name), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
 			if err != nil {
 				return err
 			}

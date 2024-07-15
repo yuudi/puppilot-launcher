@@ -30,7 +30,7 @@ func entry() {
 		fmt.Println(err.Error())
 		return
 	}
-	cmd := exec.Command(nodePath, jsPath)
+	cmd := exec.Command(nodePath, "--enable-source-maps", jsPath)
 	cmd.Dir = "puppilot"
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

@@ -1,5 +1,14 @@
+# Editors
+.vscode/
+!.vscode/extensions.json
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-#
 # Binaries for programs and plugins
 dist/
 *.exe
